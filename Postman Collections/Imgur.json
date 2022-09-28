@@ -1,0 +1,733 @@
+{
+	"info": {
+		"_postman_id": "1c4a682a-87cd-4ba2-a7f0-76092219fdec",
+		"name": "Imgur Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "upload image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "345646e4-be34-49e5-947c-82b0fba8ae57",
+						"exec": [
+							"pm.test(\"succes is true\",function(){",
+							"",
+							"pm.expect(pm.response.json().success).to.be.true;",
+							"",
+							"",
+							"});",
+							"",
+							"",
+							"pm.test(\"imageHash set\", function () {",
+							"    var jsonData = pm.response.json();",
+							"   pm.collectionVariables.set(\"imageHash\",jsonData.data.deletehash);",
+							"});",
+							"",
+							"pm.test(\"set id\",function(){",
+							"",
+							"pm.collectionVariables.set(\"id\",pm.response.json().data.id);",
+							"",
+							"})",
+							"",
+							"var schema = {",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"data\": {",
+							"      \"type\": \"object\",",
+							"      \"properties\": {",
+							"        \"id\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"title\": {",
+							"          \"type\": \"null\"",
+							"        },",
+							"        \"description\": {",
+							"          \"type\": \"null\"",
+							"        },",
+							"        \"datetime\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"type\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"animated\": {",
+							"          \"type\": \"boolean\"",
+							"        },",
+							"        \"width\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"height\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"size\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"views\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"bandwidth\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"vote\": {",
+							"          \"type\": \"null\"",
+							"        },",
+							"        \"favorite\": {",
+							"          \"type\": \"boolean\"",
+							"        },",
+							"        \"nsfw\": {",
+							"          \"type\": \"null\"",
+							"        },",
+							"        \"section\": {",
+							"          \"type\": \"null\"",
+							"        },",
+							"        \"account_url\": {",
+							"          \"type\": \"null\"",
+							"        },",
+							"        \"account_id\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"is_ad\": {",
+							"          \"type\": \"boolean\"",
+							"        },",
+							"        \"in_most_viral\": {",
+							"          \"type\": \"boolean\"",
+							"        },",
+							"        \"has_sound\": {",
+							"          \"type\": \"boolean\"",
+							"        },",
+							"        \"tags\": {",
+							"          \"type\": \"array\",",
+							"          \"items\": {}",
+							"        },",
+							"        \"ad_type\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"ad_url\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"edited\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"in_gallery\": {",
+							"          \"type\": \"boolean\"",
+							"        },",
+							"        \"deletehash\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"name\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"link\": {",
+							"          \"type\": \"string\"",
+							"        }",
+							"      },",
+							"      \"required\": [",
+							"        \"id\",",
+							"        \"title\",",
+							"        \"description\",",
+							"        \"datetime\",",
+							"        \"type\",",
+							"        \"animated\",",
+							"        \"width\",",
+							"        \"height\",",
+							"        \"size\",",
+							"        \"views\",",
+							"        \"bandwidth\",",
+							"        \"vote\",",
+							"        \"favorite\",",
+							"        \"nsfw\",",
+							"        \"section\",",
+							"        \"account_url\",",
+							"        \"account_id\",",
+							"        \"is_ad\",",
+							"        \"in_most_viral\",",
+							"        \"has_sound\",",
+							"        \"tags\",",
+							"        \"ad_type\",",
+							"        \"ad_url\",",
+							"        \"edited\",",
+							"        \"in_gallery\",",
+							"        \"deletehash\",",
+							"        \"name\",",
+							"        \"link\"",
+							"      ]",
+							"    },",
+							"    \"success\": {",
+							"      \"type\": \"boolean\"",
+							"    },",
+							"    \"status\": {",
+							"      \"type\": \"integer\"",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"data\",",
+							"    \"success\",",
+							"    \"status\"",
+							"  ]",
+							"}",
+							"",
+							"var data1 = [true, false];",
+							"",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"    ",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "808ef028-88f4-47bb-8911-df38a98b205b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": {
+						"addTokenTo": "header"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Client-ID 21feb4cca3713ee"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"type": "file",
+							"key": "image",
+							"src": "/Users/serkansevimli/Documents/Screen Shot 2022-09-26 at 8.08.41 AM.png"
+						},
+						{
+							"key": "",
+							"type": "file",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://api.imgur.com/3/image"
+			},
+			"response": [
+				{
+					"id": "73225b05-7cf5-4027-9d5d-ab94c6b28740",
+					"name": "upload image",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization1",
+								"value": "Client-ID{{clientId}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"type": "file",
+									"key": "image",
+									"src": "/Users/serkansevimli/Documents/Screen Shot 2022-09-26 at 8.08.41 AM.png"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": "https://api.imgur.com/3/image"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Sep 2022 15:13:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-Post-Rate-Limit-Limit",
+							"value": "1250"
+						},
+						{
+							"key": "X-Post-Rate-Limit-Remaining",
+							"value": "1228"
+						},
+						{
+							"key": "X-Post-Rate-Limit-Reset",
+							"value": "730"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, PUT, POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, SESSIONCOUNT, IMGURMWBETA, IMGURMWBETAOPTIN"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "X-RateLimit-ClientLimit, X-RateLimit-ClientRemaining, X-RateLimit-UserLimit, X-RateLimit-UserRemaining, X-RateLimit-UserReset, Geo-City, Geo-Region, Geo-Metro-Code, Geo-Country-Code"
+						},
+						{
+							"key": "X-RateLimit-ClientLimit",
+							"value": "12500"
+						},
+						{
+							"key": "X-RateLimit-ClientRemaining",
+							"value": "12475"
+						},
+						{
+							"key": "X-RateLimit-UserLimit",
+							"value": "2000"
+						},
+						{
+							"key": "X-RateLimit-UserRemaining",
+							"value": "1974"
+						},
+						{
+							"key": "X-RateLimit-UserReset",
+							"value": "1664292367"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e2b030df7346565846218ea81284c3af46bbd8c\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+						},
+						{
+							"key": "X-origin-ip",
+							"value": "172.16.140.59"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"data\": {\n        \"id\": \"SmlaTUa\",\n        \"title\": null,\n        \"description\": null,\n        \"datetime\": 1664291637,\n        \"type\": \"image/png\",\n        \"animated\": false,\n        \"width\": 2302,\n        \"height\": 744,\n        \"size\": 135110,\n        \"views\": 0,\n        \"bandwidth\": 0,\n        \"vote\": null,\n        \"favorite\": false,\n        \"nsfw\": null,\n        \"section\": null,\n        \"account_url\": null,\n        \"account_id\": 165707313,\n        \"is_ad\": false,\n        \"in_most_viral\": false,\n        \"has_sound\": false,\n        \"tags\": [],\n        \"ad_type\": 0,\n        \"ad_url\": \"\",\n        \"edited\": \"0\",\n        \"in_gallery\": false,\n        \"deletehash\": \"LZhNyle0vtLyAoB\",\n        \"name\": \"\",\n        \"link\": \"https://i.imgur.com/SmlaTUa.png\"\n    },\n    \"success\": true,\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "Verify image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "780102bc-418f-4cc5-9d02-9b6ac379c9e2",
+						"exec": [
+							"pm.test(\"unsafeflags 2nd item is sixth_mod_unsafe\",function(){",
+							"",
+							"var safeFlags=pm.response.json().data.ad_config.safeFlags;",
+							"",
+							"var target=safeFlags.map(function(item){",
+							"",
+							"return item;",
+							"",
+							"",
+							"})",
+							"",
+							"console.log(target.indexOf(\"share\"));",
+							"",
+							"pm.expect(target[1]).eql(\"share\")",
+							"",
+							"",
+							"});",
+							"",
+							"var schema = {",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"data\": {",
+							"      \"type\": \"boolean\"",
+							"    },",
+							"    \"success\": {",
+							"      \"type\": \"boolean\"",
+							"    },",
+							"    \"status\": {",
+							"      \"type\": \"integer\"",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"data\",",
+							"    \"success\",",
+							"    \"status\"",
+							"  ]",
+							"}",
+							"",
+							"var data1 = pm.response.json();",
+							"",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"    ",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "406fade2-f1f8-4298-ad49-2a71ce2d4d50",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Client-ID 21feb4cca3713ee"
+					}
+				],
+				"url": "https://api.imgur.com/3/image/{{id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "update image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39b342cd-eb7b-4b61-9e76-85bf9cae0ca1",
+						"exec": [
+							"pm.test(\"json test\",function(){",
+							"",
+							"pm.expect(pm.response.json().data).to.be.true;",
+							"",
+							"pm.expect(pm.response.json().success).to.be.true;",
+							"var assert=require(\"chai\").assert;",
+							"assert.equal(pm.response.json().status,200);",
+							"",
+							"})",
+							"",
+							"",
+							"var schema = {",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"data\": {",
+							"      \"type\": \"boolean\"",
+							"    },",
+							"    \"success\": {",
+							"      \"type\": \"boolean\"",
+							"    },",
+							"    \"status\": {",
+							"      \"type\": \"integer\"",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"data\",",
+							"    \"success\",",
+							"    \"status\"",
+							"  ]",
+							"}",
+							"",
+							"var data1 = pm.response.json();",
+							"",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9d4d2ba7-7160-4976-829e-cf4989162af8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"type": "text",
+							"key": "title",
+							"value": "Heart"
+						},
+						{
+							"type": "text",
+							"key": "description",
+							"value": "This is an image of a heart outline."
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://api.imgur.com/3/image/{{imageHash}}"
+			},
+			"response": [
+				{
+					"id": "1822c43f-08e4-4a22-bde0-7839087ec63f",
+					"name": "update",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"type": "text",
+									"key": "title",
+									"value": "Heart"
+								},
+								{
+									"type": "text",
+									"key": "description",
+									"value": "This is an image of a heart outline."
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": "https://api.imgur.com/3/image/{{imageHash}}"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Sep 2022 15:01:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-Post-Rate-Limit-Limit",
+							"value": "1250"
+						},
+						{
+							"key": "X-Post-Rate-Limit-Remaining",
+							"value": "1234"
+						},
+						{
+							"key": "X-Post-Rate-Limit-Reset",
+							"value": "1459"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, PUT, POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, SESSIONCOUNT, IMGURMWBETA, IMGURMWBETAOPTIN"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "X-RateLimit-ClientLimit, X-RateLimit-ClientRemaining, X-RateLimit-UserLimit, X-RateLimit-UserRemaining, X-RateLimit-UserReset, Geo-City, Geo-Region, Geo-Metro-Code, Geo-Country-Code"
+						},
+						{
+							"key": "X-RateLimit-ClientLimit",
+							"value": "12500"
+						},
+						{
+							"key": "X-RateLimit-ClientRemaining",
+							"value": "12481"
+						},
+						{
+							"key": "X-RateLimit-UserLimit",
+							"value": "2000"
+						},
+						{
+							"key": "X-RateLimit-UserRemaining",
+							"value": "1980"
+						},
+						{
+							"key": "X-RateLimit-UserReset",
+							"value": "1664292367"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a931e85c4c3e49f1fb921656d64b65510e32928\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+						},
+						{
+							"key": "X-origin-ip",
+							"value": "172.16.140.59"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"data\": true,\n    \"success\": true,\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "delete image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1d39d664-bf8f-4064-91f2-87559644deb9",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "6814212b-cffa-469e-9d75-3953633329e8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://api.imgur.com/3/image/1eLv7AkZMFlERd8"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "9b0bae66-ea5d-4069-93db-5d9c3cd2b3dc",
+			"key": "accessToken",
+			"value": "5bcc105f422cf1e848f33041b3cdfb8551769874",
+			"type": "string"
+		},
+		{
+			"id": "8c8d6b63-3b32-43cd-84ef-d41bd9f2a142",
+			"key": "Imagedeletehash",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "6fad5eac-c0fb-4e80-a719-5f0c792b3135",
+			"key": "imageHash",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "f5132993-6123-451d-ac10-8b8b0e1e2920",
+			"key": "id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
